@@ -30,7 +30,7 @@ signal update(delta, beat_position, measure_position)
 	#set_song(load("res://Another Time Perhaps.mp3"),93*2,4)
 	#play_song_from_beat(0)
 
-func set_song(_stream:AudioStream, _bpm:float, _beats_per_measure:int, _first_beat_offset:float = 0):
+func set_song(_stream:AudioStream, _bpm:float, _beats_per_measure:int = 4, _first_beat_offset:float = 0):
 	if(stream!=_stream):
 		stream=_stream
 		bpm=_bpm
@@ -45,6 +45,8 @@ func set_song(_stream:AudioStream, _bpm:float, _beats_per_measure:int, _first_be
 		
 		song_position=0
 		current_beat=0
+		
+		first_beat_offset = _first_beat_offset
 
 func play_song_from_beat(beat:float):
 	play(sec_per_beat*beat)
@@ -61,7 +63,7 @@ func play_song_with_start_offset(offset:float):
 
 func _physics_process(delta: float) -> void:
 	if (playing):
-		song_position = get_playback_position() + AudioServer.get_time_since_last_mix()
+		song_position = get_playback_position() + AudioServer.get_time_since_last_mix() + first_beat_offset
 		song_position -= AudioServer.get_output_latency()
 		current_beat = song_position / sec_per_beat
 		_report_beat()
@@ -71,8 +73,8 @@ func _physics_process(delta: float) -> void:
 		current_beat = beat_per_sec*song_position
 		_report_beat()
 		_report_update()
-		if(current_beat>=0):
-			play_song_from_beat(0)
+		if(current_beat>=-first_beat_offset):
+			play(0)
 
 func _report_beat():
 	if last_reported_beat < floori(current_beat):

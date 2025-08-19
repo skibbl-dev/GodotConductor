@@ -9,7 +9,7 @@ func _ready() -> void:
 
 func _update(delta,_beat_pos,_measure_pos):
 	if(is_playing()):
-		seek((Conductor.current_beat-start_beat)*speed_scale,true)
+		seek((Conductor.current_beat-start_beat)*speed_scale,true,false)
 
 func play(name: StringName = &"", custom_speed: float = speed_scale, custom_blend: float = -1, from_end: bool = false):
 	start_beat = Conductor.current_beat
