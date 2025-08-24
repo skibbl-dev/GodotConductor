@@ -14,7 +14,7 @@ func _update(delta,_beat_pos,_measure_pos):
 
 func play(name: StringName = &"", custom_speed: float = speed_scale, custom_blend: float = -1, from_end: bool = false):
 	if(round_start_beat):
-		start_beat = floori(Conductor.current_beat)
+		start_beat = roundi(Conductor.current_beat)
 	else:
 		start_beat = Conductor.current_beat
 	current_animation = name

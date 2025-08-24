@@ -67,8 +67,8 @@ func is_stopped():
 func start(beats:float=wait_beats):
 	wait_beats = beats
 	if(round_start_beat):
-		time_left = wait_beats - (Conductor.current_beat - floori(Conductor.current_beat))
-		_start_time = floori(Conductor.current_beat)
+		time_left = wait_beats - (Conductor.current_beat - roundi(Conductor.current_beat))
+		_start_time = roundi(Conductor.current_beat)
 	else:
 		time_left = wait_beats
 		_start_time = Conductor.current_beat
