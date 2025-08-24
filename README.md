@@ -52,8 +52,12 @@ this signal gets called once at the start of every measure. The position variabl
 ## ConductedTimer:
 i was too lazy to write at the time
 
+Works like the normal timer, but It's to the beat.
+
 ## ConductedAnimationPlayer:
-i was too lazy to write at the time
+Works similar to the normal AnimationPlayer, has some limited functionality.
+
+1 second in timeline = 1 beat
 
 ## Quick Tutorial:
 i was too lazy to write at the time
