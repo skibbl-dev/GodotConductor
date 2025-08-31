@@ -53,11 +53,15 @@ this signal gets called once at the start of every measure. The position variabl
 i was too lazy to write at the time
 
 Works like the normal timer, but It's to the beat.
+Round start beat makes it so if you say ConductedTimer.start() at "1.1" beats, it'll round to 1
 
 ## ConductedAnimationPlayer:
 Works similar to the normal AnimationPlayer, has some limited functionality.
 
 1 second in timeline = 1 beat
+Round start beat makes it so if you say ConductedTimer.start() at "1.1" beats, it'll round to 1
+
+If you use call functions, it will repeatedly call the same function unless you put code to disable.
 
 ## Quick Tutorial:
 i was too lazy to write at the time
