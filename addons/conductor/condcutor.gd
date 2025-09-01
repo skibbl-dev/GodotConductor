@@ -14,21 +14,12 @@ var last_reported_beat:int = -1
 var last_reported_update:float = 0
 var last_reported_measure:int = -1
 var current_measure:int = 0
-#var beats_before_start:int = 0
-
-# Determining how close to the beat an event is
-#var closest = 0
-#var time_off_beat = 0.0
 
 var is_playing_offset:bool = false
 
 signal beat(position)
 signal measure(position)
 signal update(delta, beat_position, measure_position)
-
-#func _ready() -> void:
-	#set_song(load("res://Another Time Perhaps.mp3"),93*2,4)
-	#play_song_from_beat(0)
 
 func set_song(_stream:AudioStream, _bpm:float, _beats_per_measure:int = 4, _first_beat_offset:float = 0):
 	if(stream!=_stream):
@@ -60,6 +51,9 @@ func play_song_with_start_offset(offset:float):
 	current_beat = -offset
 	song_position = sec_per_beat*-offset
 	is_playing_offset = true
+
+func difference_to_beat_with_offset(_beat:float, offset:float):
+	return abs((current_beat+(offset*beat_per_sec)) - _beat)
 
 func _physics_process(delta: float) -> void:
 	if (playing):
