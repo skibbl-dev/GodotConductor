@@ -32,8 +32,15 @@ This function starts playing the song with an offset. The offset is in beats, an
 
 #### example:
 play_song_with_start_offset(4)
-starts playing at -4, until it reaches 0 when the song starts playing.
+#starts playing at -4, until it reaches 0 when the song starts playing.
 
+### difference_to_beat_with_offset(_beat:float, offset:float):
+This function gives the difference (in beats) from the current beat to a given beat, with a given offset (in seconds)
+
+#### example:
+if difference_to_beat_with_offset(3, 0.03) <= 0.2:
+  print("you hit the note!")
+# this will print if you hit within 0.2 beats of beat 3, and a given offset of 0.03 seconds.
 
 ## Conductor Signals:
 To add a signal to a script, use Conductor.SIGNAL_NAME.connect(FUNC_NAME), where SIGNAL_NAME is the signal you want to connect (i.e. beat), and FUNC_NAME is the function you want to call.
