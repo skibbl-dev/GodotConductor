@@ -1,5 +1,6 @@
 # GodotConductor
 A simple addon for syncing game events to the music.
+https://godotengine.org/asset-library/asset/4246
 
 # Conductor Autoload/Global:
 When enabling the plugin, it should automatically add the Conductor script to the Globals/Autoload section. If it doesn't, disable and re-enable the plugin.
