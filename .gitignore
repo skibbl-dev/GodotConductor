@@ -1,0 +1,30 @@
+.tmp
+.DS_Store
+project.godot
+.idea/
+*.zip
+
+/.import
+/.vscode
+/default_env.tres
+/default_bus_layout.tres
+/icon.svg
+/icon.svg.import
+export_presets.cfg
+.editorconfig
+
+/addons/*
+!/addons/phantom_camera
+
+.godot/
+
+# CSharp
+*.DotSettings
+*.DotSettings.user
+*.csproj.old*
+
+# Docs specific ignores
+#/docs/
+node_modules
+cache
+dist
